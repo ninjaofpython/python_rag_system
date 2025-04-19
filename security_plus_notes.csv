@@ -1,0 +1,6 @@
+topic,concept,description,example
+Authentication,MFA,Multi-factor authentication requires two or more verification methods,"Something you know (password), something you have (token), something you are (biometric)"
+Access Control,RBAC,Role-based access control assigns permissions based on roles,"Admin role can modify system settings, User role can only view content"
+Cryptography,Symmetric Encryption,Uses the same key for encryption and decryption,"AES, DES, 3DES"
+Cryptography,Asymmetric Encryption,Uses public/private key pairs,"RSA, ECC, Diffie-Hellman"
+Network Security,Firewall,Monitors and filters incoming and outgoing network traffic,"Stateful firewall keeps track of active connections, Stateless firewall filters based on rules"
