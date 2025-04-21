@@ -15,10 +15,13 @@ PYTHON_FILE = os.path.join(
     os.path.dirname(__file__), "mcp.py"
 )  # Path to the Python file to be executed
 
-TRANSCRIPT_FILE = os.path.join(os.path.dirname(__file__), "transcript.txt")
+
+# If you want the absolute path, you can do:
+TRANSCRIPT_FILE = os.path.join(os.path.dirname(__file__), "domain_5.txt")
+
 
 CSV_FILE = os.path.join(
-    os.path.dirname(__file__), "security_plus_notes.csv"
+    os.path.dirname(__file__), "security_plus_notes_domain_5.csv"
 )  # Path to the CSV file
 
 # Path to the repository root directory
@@ -109,15 +112,14 @@ def read_notes() -> str:
 @mcp.tool()
 def read_transcript() -> str:
     """
-    Read the latest transcript from the transcript file.
+    Read the transcript text file from the transcript directory.
 
     Returns:
-        str: The last transcript entry. If no transcripts exist, a default message is returned.
+        str: Each txt file's text as a single string for parsing. If no, transcripts exist, a default message is returned.
     """
-    ensure_file()
     with open(TRANSCRIPT_FILE, "r") as f:
-        content = f.read().strip()
-    return content or "No transcripts available."
+        content = f.read()
+    return content or "No transcripts returned."
 
 
 @mcp.tool()
@@ -162,10 +164,3 @@ def note_summary_prompt() -> str:
     if not content:
         return "There are no notes yet."
     return f"Summarize the current notes: {content}"
-
-
-if __name__ == "__main__":
-    ensure_file()
-    ensure_directory()
-    ensure_git_repo()
-    mcp.run()
